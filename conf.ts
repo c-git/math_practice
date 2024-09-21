@@ -45,11 +45,11 @@ const ROW_MAX = ROW_CLEAR;
 
 //////////////////// SUPPORTING FUNCTIONS ////////////////
 
-function getNamedRangeValue(name) {
+function getNamedRangeValue(name: string) {
     return spreadsheet_active.getRange(name).getValue();
 }
 
-function getNamedRangeValues(name) {
+function getNamedRangeValues(name: string) {
     return spreadsheet_active.getRange(name).getValues();
 }
 
