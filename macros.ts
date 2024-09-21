@@ -17,10 +17,12 @@ const CMD_CLEAR = [
 
 function NewRounding() {
     ClearRounding();
+    const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Rounding");
     // TODO 1: Write func
 }
 function NewWordForm() {
     ClearWordForm();
+    const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Word form");
     // TODO 1: Write func
 }
 
@@ -84,20 +86,21 @@ function NewSkipCounting() {
 
     // Set new skip base
     const bases = getEnabledSkipBases();
-    const base = bases[Math.floor(Math.random() * bases.length)];
-    spreadsheet.getRange('B1').setValue(base);
+    const base_increment = bases[Math.floor(Math.random() * bases.length)];
+    const start_val = (getSKIP_IS_BASE_START()) ? base_increment : getRandomNum();
+    spreadsheet.getRange('B1:C1').setValues([[start_val, base_increment]]);
 
     const given_values = new Array(getSKIP_LIMIT());
 
     // Set first element in skip counting (if enabled)
-    given_values[0] = (getSKIP_INCLUDE_FIRST()) ? [base] : [null];
+    given_values[0] = (getSKIP_INCLUDE_FIRST()) ? [start_val] : [null];
 
     // Set some other elements (if enabled)
     for (let i = 1; i < getSKIP_LIMIT(); i++) {
         given_values[i] =
             (getSKIP_INCLUDE_RANDOM() &&
                 Math.random() < getSKIP_RANDOM_PROB())
-                ? [(i + 1) * base] : [null];
+                ? [start_val + i * base_increment] : [null];
     }
 
     // Write to sheet
