@@ -88,6 +88,10 @@ function NewSkipCounting() {
     const bases = getEnabledSkipBases();
     const base_increment = bases[Math.floor(Math.random() * bases.length)];
     const start_val = (getSKIP_IS_BASE_START()) ? base_increment : getRandomNum();
+    Logger.log(getSKIP_IS_BASE_START()); // TODO: Remove temp code for checking what value is seen as
+    Logger.log(bases); // TODO: Remove temp code
+    Logger.log(base_increment); // TODO: Remove temp code
+    Logger.log(start_val); // TODO: Remove temp code
     spreadsheet.getRange('B1:C1').setValues([[start_val, base_increment]]);
 
     const given_values = new Array(getSKIP_LIMIT());
