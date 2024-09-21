@@ -35,13 +35,13 @@ var getSKIP_BASES = once(function () {
     return getNamedRangeValues("SkipCount_Bases");
 });
 
-var COL_MIN = 2;
-var COL_MAX = 4;
+const COL_MIN = 2;
+const COL_MAX = 4;
 
-var ROW_NEW = 2;
-var ROW_CLEAR = 3;
-var ROW_MIN = ROW_NEW;
-var ROW_MAX = ROW_CLEAR;
+const ROW_NEW = 2;
+const ROW_CLEAR = 3;
+const ROW_MIN = ROW_NEW;
+const ROW_MAX = ROW_CLEAR;
 
 //////////////////// SUPPORTING FUNCTIONS ////////////////
 
@@ -53,7 +53,7 @@ function getNamedRangeValues(name) {
     return spreadsheet_active.getRange(name).getValues();
 }
 
-function once(fn, context) {
+function once(fn, context?) {
     var result;
 
     return function () {
