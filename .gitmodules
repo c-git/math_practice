@@ -1,0 +1,3 @@
+[submodule "ts_lib"]
+	path = ts_lib
+	url = git@github.com:wykies/ts_lib.git
