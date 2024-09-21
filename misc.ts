@@ -17,25 +17,25 @@ function getRandomArrayIndex(arr) {
 }
 
 function getColNums() {
-    var result = new Array(getQUESTION_COUNT());
-    for (var i = 0; i < result.length; i++) {
+    let result = new Array(getQUESTION_COUNT());
+    for (let i = 0; i < result.length; i++) {
         result[i] = [getRandomNum()];
     }
     return result;
 }
 
 function getEnabledArithOpers() {
-    var result = getNamedRangeValues("EnabledArithOpers");
+    let result = getNamedRangeValues("EnabledArithOpers");
 
     // Remove Disabled functions
-    for (var i = result.length - 1; i >= 0; i--) {
+    for (let i = result.length - 1; i >= 0; i--) {
         if (!result[i][1]) {
             result.splice(i, 1);
         }
     }
 
     // Set generation functions
-    for (var i = 0; i < result.length; i++) {
+    for (let i = 0; i < result.length; i++) {
         if (result[i][0] === getOP_SYM_ADD()) {
             result[i][2] = genAdd;
         } else if (result[i][0] === getOP_SYM_SUB()) {
@@ -52,11 +52,11 @@ function getEnabledArithOpers() {
 }
 
 function getEnabledSkipBases() {
-    var result = [];
-    var bases = getSKIP_BASES();
+    let result = [];
+    const bases = getSKIP_BASES();
 
     // Add Enabled Bases
-    for (var i = 0; i < bases.length; i++) {
+    for (let i = 0; i < bases.length; i++) {
         if (bases[i][1]) {
             result.push(bases[i][0]);
         }
