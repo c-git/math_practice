@@ -5,30 +5,5 @@
   "exceptionLogging": "STACKDRIVER",
   "runtimeVersion": "V8",
   "sheets": {
-    "macros": [{
-      "menuName": "Clear Comparison",
-      "functionName": "ClearComparison",
-      "defaultShortcut": "Ctrl+Alt+Shift+6"
-    }, {
-      "menuName": "Clear Equations",
-      "functionName": "ClearEquations",
-      "defaultShortcut": "Ctrl+Alt+Shift+5"
-    }, {
-      "menuName": "New Equations",
-      "functionName": "NewEquations",
-      "defaultShortcut": "Ctrl+Alt+Shift+1"
-    }, {
-      "menuName": "New Comparisons",
-      "functionName": "CreateComparisons",
-      "defaultShortcut": "Ctrl+Alt+Shift+2"
-    }, {
-      "menuName": "Clear Skip Counting",
-      "functionName": "ClearSkipCounting",
-      "defaultShortcut": "Ctrl+Alt+Shift+7"
-    }, {
-      "menuName": "New Skip Counting",
-      "functionName": "NewSkipCounting",
-      "defaultShortcut": "Ctrl+Alt+Shift+3"
-    }]
   }
 }
