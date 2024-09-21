@@ -1,12 +1,12 @@
 const spreadsheet_active = SpreadsheetApp.getActive();
 
-function getRandomNum(max?) {
+function getRandomNum(max?: number): number {
     if (isUndefined(max))
         max = getMAX_NUM();
     return getRandomInt(getMIN_NUM(), max);
 }
 
-function getRandomInt(min, max) {
+function getRandomInt(min, max): number {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
