@@ -4,28 +4,35 @@ const CMD_NEW = [
     NewEquations,
     CreateComparisons,
     NewSkipCounting,
-    // NewCountForward,
-    // NewRounding,
-    // NewWordForm
+    NewRounding,
+    NewWordForm
 ];
 const CMD_CLEAR = [
     ClearEquations,
     ClearComparison,
     ClearSkipCounting,
-    // ClearCountForward,
-    // ClearRounding,
-    // ClearWordForm
+    ClearRounding,
+    ClearWordForm
 ];
+
+function NewRounding() {
+    ClearRounding();
+    // TODO 1: Write func
+}
+function NewWordForm() {
+    ClearWordForm();
+    // TODO 1: Write func
+}
 
 function ClearComparison() {
     const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Comparison");
-    spreadsheet.getRange('A:C').clear({ contentsOnly: true, skipFilteredRows: true });
+    spreadsheet.getRange('A:C').clearContent();
 }
 
 function ClearEquations() {
     const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Equations");
-    spreadsheet.getRange('A:C').clear({ contentsOnly: true, skipFilteredRows: true });
-    spreadsheet.getRange('E:E').clear({ contentsOnly: true, skipFilteredRows: true });
+    spreadsheet.getRange('A:C').clearContent();
+    spreadsheet.getRange('E:E').clearContent();
 }
 
 function NewEquations() {
@@ -56,8 +63,18 @@ function CreateComparisons() {
 }
 
 function ClearSkipCounting() {
-    var spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Skip Counting");
-    spreadsheet.getRange('A1:A100').clear({ contentsOnly: true, skipFilteredRows: true });
+    const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Skip Counting");
+    spreadsheet.getRange('A1:A100').clearContent();
+}
+
+function ClearRounding() {
+    const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Rounding");
+    spreadsheet.getRange('B2:B100').clearContent();
+}
+
+function ClearWordForm() {
+    const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Word form");
+    spreadsheet.getRange('A2:B100').clearContent();
 }
 
 
