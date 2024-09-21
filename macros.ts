@@ -65,20 +65,20 @@ function ClearSkipCounting() {
 
 function NewSkipCounting() {
     ClearSkipCounting();
-    var spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Skip Counting");
+    const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Skip Counting");
 
     // Set new skip base
-    var bases = getEnabledSkipBases();
-    var base = bases[Math.floor(Math.random() * bases.length)];
+    const bases = getEnabledSkipBases();
+    const base = bases[Math.floor(Math.random() * bases.length)];
     spreadsheet.getRange('B1').setValue(base);
 
-    var given_values = new Array(getSKIP_LIMIT());
+    const given_values = new Array(getSKIP_LIMIT());
 
     // Set first element in skip counting (if enabled)
     given_values[0] = (getSKIP_INCLUDE_FIRST()) ? [base] : [null];
 
     // Set some other elements (if enabled)
-    for (var i = 1; i < getSKIP_LIMIT(); i++) {
+    for (let i = 1; i < getSKIP_LIMIT(); i++) {
         given_values[i] =
             (getSKIP_INCLUDE_RANDOM() &&
                 Math.random() < getSKIP_RANDOM_PROB())
