@@ -34,6 +34,9 @@ const getSKIP_LIMIT = once(function () {
 const getSKIP_BASES = once(function () {
     return getNamedRangeValues("SkipCount_Bases");
 });
+const getSKIP_IS_BASE_START = once(function () {
+    return getNamedRangeValues("SkipCount_IsBaseStart");
+});
 
 const COL_MIN = 2;
 const COL_MAX = 4;
