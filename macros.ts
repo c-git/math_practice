@@ -6,27 +6,27 @@ var CMD_NEW = [NewEquations, CreateComparisons, NewSkipCounting];
 var CMD_CLEAR = [ClearEquations, ClearComparison, ClearSkipCounting];
 
 function ClearComparison() {
-    var spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Comparison");
-    spreadsheet.getRange('A:C').clear({contentsOnly: true, skipFilteredRows: true});
+    const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Comparison");
+    spreadsheet.getRange('A:C').clear({ contentsOnly: true, skipFilteredRows: true });
 }
 
 function ClearEquations() {
-    var spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Equations");
-    spreadsheet.getRange('A:C').clear({contentsOnly: true, skipFilteredRows: true});
-    spreadsheet.getRange('E:E').clear({contentsOnly: true, skipFilteredRows: true});
+    const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Equations");
+    spreadsheet.getRange('A:C').clear({ contentsOnly: true, skipFilteredRows: true });
+    spreadsheet.getRange('E:E').clear({ contentsOnly: true, skipFilteredRows: true });
 }
 
 function NewEquations() {
     ClearEquations();
-    var spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Equations");
+    const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Equations");
 
     // Get default values for left and right column
-    var l_col = getColNums();
-    var r_col = getColNums();
+    const l_col = getColNums();
+    const r_col = getColNums();
 
-    var ops = getEnabledArithOpers();
-    var eqs = new Array(getQUESTION_COUNT());
-    for (var i = 0; i < eqs.length; i++) {
+    const ops = getEnabledArithOpers();
+    const eqs = new Array(getQUESTION_COUNT());
+    for (let i = 0; i < eqs.length; i++) {
         eqs[i] = ops[getRandomArrayIndex(ops)][2](l_col[i][0], r_col[i][0]);
     }
 
@@ -35,8 +35,8 @@ function NewEquations() {
 
 function CreateComparisons() {
     ClearComparison();
-    var spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Comparison");
-    var nums = getColNums();
+    const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Comparison");
+    let nums = getColNums();
     spreadsheet.getRange('A1:A' + getQUESTION_COUNT()).setValues(nums);
 
     nums = getColNums();
@@ -45,7 +45,7 @@ function CreateComparisons() {
 
 function ClearSkipCounting() {
     var spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Skip Counting");
-    spreadsheet.getRange('A1:A100').clear({contentsOnly: true, skipFilteredRows: true});
+    spreadsheet.getRange('A1:A100').clear({ contentsOnly: true, skipFilteredRows: true });
 }
 
 
@@ -66,8 +66,8 @@ function NewSkipCounting() {
     // Set some other elements (if enabled)
     for (var i = 1; i < getSKIP_LIMIT(); i++) {
         given_values[i] =
-                (getSKIP_INCLUDE_RANDOM() &&
-                        Math.random() < getSKIP_RANDOM_PROB())
+            (getSKIP_INCLUDE_RANDOM() &&
+                Math.random() < getSKIP_RANDOM_PROB())
                 ? [(i + 1) * base] : [null];
     }
 
@@ -77,16 +77,16 @@ function NewSkipCounting() {
 
 function InstalledEdit(e) {
     if (
-            (e.source.getActiveSheet().getName() === "Controls") &&
-            (e.range.getWidth() === 1) &&
-            (e.range.getHeight() === 1) &&
-            (e.range.getColumn() >= COL_MIN) &&
-            (e.range.getColumn() <= COL_MAX) &&
-            (e.range.getRow() >= ROW_MIN) &&
-            (e.range.getRow() <= ROW_MAX)
-            ) {
-        var spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Controls");
-        var status_cell = spreadsheet.getRange('A6');
+        (e.source.getActiveSheet().getName() === "Controls") &&
+        (e.range.getWidth() === 1) &&
+        (e.range.getHeight() === 1) &&
+        (e.range.getColumn() >= COL_MIN) &&
+        (e.range.getColumn() <= COL_MAX) &&
+        (e.range.getRow() >= ROW_MIN) &&
+        (e.range.getRow() <= ROW_MAX)
+    ) {
+        const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Controls");
+        const status_cell = spreadsheet.getRange('A6');
         try {
             if (status_cell.getValue() === 'Done') {
                 status_cell.setValue('Running...');

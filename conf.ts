@@ -54,7 +54,7 @@ function getNamedRangeValues(name) {
 }
 
 function once(fn, context?) {
-    var result;
+    let result;
 
     return function () {
         if (fn) {

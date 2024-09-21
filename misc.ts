@@ -1,6 +1,6 @@
 /* global SpreadsheetApp */
 
-var spreadsheet_active = SpreadsheetApp.getActive();
+const spreadsheet_active = SpreadsheetApp.getActive();
 
 function getRandomNum(max?) {
     if (isUndefined(max))
