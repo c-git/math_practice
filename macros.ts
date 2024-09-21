@@ -91,7 +91,7 @@ function InstalledEdit(e) {
             if (status_cell.getValue() === 'Done') {
                 status_cell.setValue('Running...');
             } else {
-                status_cell.setValue('Abort status not done');
+                Logger.log('Aborted status not done');
                 return; // Abort previous status was not done
             }
             if (e.range.getRow() === ROW_NEW) {
