@@ -2,7 +2,7 @@
 
 var spreadsheet_active = SpreadsheetApp.getActive();
 
-function getRandomNum(max) {
+function getRandomNum(max?) {
     if (isUndefined(max))
         max = getMAX_NUM();
     return getRandomInt(getMIN_NUM(), max);
