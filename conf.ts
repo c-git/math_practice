@@ -26,7 +26,7 @@ var getSKIP_INCLUDE_RANDOM = once(function () {
     return getNamedRangeValue("SkipCount_IncludeRandom");
 });
 var getSKIP_RANDOM_PROB = once(function () {
-    return getNamedRangeValue("SkiptCount_Prob");
+    return getNamedRangeValue("SkipCount_Prob");
 });
 var getSKIP_LIMIT = once(function () {
     return getNamedRangeValue("SkipCount_Limit");
