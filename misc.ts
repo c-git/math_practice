@@ -1,5 +1,3 @@
-/* global SpreadsheetApp */
-
 const spreadsheet_active = SpreadsheetApp.getActive();
 
 function getRandomNum(max?) {

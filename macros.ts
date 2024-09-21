@@ -1,5 +1,3 @@
-/* global SpreadsheetApp, COL_MIN, COL_MAX, ROW_MIN, ROW_MAX, ROW_NEW, ROW_CLEAR */
-
 /** @OnlyCurrentDoc */
 
 const CMD_NEW = [
