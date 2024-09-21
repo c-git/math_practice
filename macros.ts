@@ -2,8 +2,22 @@
 
 /** @OnlyCurrentDoc */
 
-var CMD_NEW = [NewEquations, CreateComparisons, NewSkipCounting];
-var CMD_CLEAR = [ClearEquations, ClearComparison, ClearSkipCounting];
+const CMD_NEW = [
+    NewEquations,
+    CreateComparisons,
+    NewSkipCounting,
+    // NewCountForward,
+    // NewRounding,
+    // NewWordForm
+];
+const CMD_CLEAR = [
+    ClearEquations,
+    ClearComparison,
+    ClearSkipCounting,
+    // ClearCountForward,
+    // ClearRounding,
+    // ClearWordForm
+];
 
 function ClearComparison() {
     const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Comparison");
