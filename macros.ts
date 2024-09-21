@@ -134,8 +134,11 @@ function InstalledEdit(e) {
                 CMD_CLEAR[e.range.getColumn() - COL_MIN]();
             }
             status_cell.setValue('Done');
+            Logger.log('Done');
         } catch (err) {
-            status_cell.setValue('ERROR: ' + err.message);
+            const err_msg = `ERROR: ${err.message}`;
+            status_cell.setValue(err_msg);
+            Logger.log(err_msg);
         }
     }
 }
