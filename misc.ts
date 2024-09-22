@@ -25,7 +25,8 @@ function getRandomArrayIndex(arr) {
     return getRandomInt(0, arr.length - 1);
 }
 
-function getColNums(count: number): number[][] {
+function getColNums(count?: number): number[][] {
+    if (isUndefined(count)) count = getQUESTION_COUNT();
     let result = new Array(count);
     for (let i = 0; i < result.length; i++) {
         result[i] = [getRandomNum()];

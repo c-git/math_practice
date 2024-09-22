@@ -42,7 +42,7 @@ function NewRounding() {
     const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Rounding");
     const exponent_of_10 = getRandomInt(getROUND_EXP_LOW(), getROUND_EXP_HIGH());
     const round_to = 10 ** exponent_of_10;
-    const nums_to_round = getColNums(getQUESTION_COUNT());
+    const nums_to_round = getColNums();
     spreadsheet.getRange('B1').setValue(round_to);
     spreadsheet.getRange('A3:A' + (3 - 1 + nums_to_round.length)).setValues(nums_to_round);
 }
@@ -75,9 +75,8 @@ function NewEquations() {
     const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Equations");
 
     // Get default values for left and right column
-    const count = getQUESTION_COUNT();
-    const l_col = getColNums(count);
-    const r_col = getColNums(count);
+    const l_col = getColNums();
+    const r_col = getColNums();
 
     const ops = getEnabledArithOpers();
     const eqs = new Array(getQUESTION_COUNT());
@@ -91,10 +90,10 @@ function NewEquations() {
 function CreateComparisons() {
     ClearComparison();
     const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Comparison");
-    let nums = getColNums(getQUESTION_COUNT());
+    let nums = getColNums();
     spreadsheet.getRange('A1:A' + getQUESTION_COUNT()).setValues(nums);
 
-    nums = getColNums(getQUESTION_COUNT());
+    nums = getColNums();
     spreadsheet.getRange('C1:C' + getQUESTION_COUNT()).setValues(nums);
 }
 
