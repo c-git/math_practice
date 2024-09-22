@@ -5,14 +5,16 @@ const CMD_NEW = [
     CreateComparisons,
     NewSkipCounting,
     NewRounding,
-    NewWordForm
+    NewWordForm,
+    NewSort
 ];
 const CMD_CLEAR = [
     ClearEquations,
     ClearComparison,
     ClearSkipCounting,
     ClearRounding,
-    ClearWordForm
+    ClearWordForm,
+    ClearSort
 ];
 
 function NewRounding() {
@@ -20,9 +22,16 @@ function NewRounding() {
     const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Rounding");
     // TODO 1: Write func
 }
+
 function NewWordForm() {
     ClearWordForm();
     const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Word form");
+    // TODO 1: Write func
+}
+
+function NewSort() {
+    ClearSort();
+    const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Sorting");
     // TODO 1: Write func
 }
 
@@ -69,9 +78,14 @@ function ClearSkipCounting() {
     spreadsheet.getRange('A1:A100').clearContent();
 }
 
+function ClearSort() {
+    const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Sorting");
+    spreadsheet.getRange('A1:A30').clearContent();
+}
+
 function ClearRounding() {
     const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Rounding");
-    spreadsheet.getRange('B2:B100').clearContent();
+    spreadsheet.getRange('B3:B100').clearContent();
 }
 
 function ClearWordForm() {
