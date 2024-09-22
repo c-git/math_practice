@@ -33,7 +33,7 @@ function number_to_words(n: number): string {
     const digit = n % 10;
     if (n < 100) return tens[Math.floor((n / 10)) - 2] + (digit ? "-" + num[digit] : "");
     if (n < 1000) return num[Math.floor((n / 100))] + " hundred" + (n % 100 == 0 ? "" : " and " + number_to_words(n % 100));
-    return number_to_words(Math.floor((n / 1000))) + " thousand" + (n % 1000 != 0 ? " " + number_to_words(n % 1000) : "");
+    return number_to_words(Math.floor((n / 1000))) + " thousand" + (n % 1000 == 0 ? "" : ((n % 1000 < 100 ? " and " : " ") + number_to_words(n % 1000)));
 }
 
 function NewRounding() {
