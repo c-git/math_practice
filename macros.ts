@@ -112,7 +112,7 @@ function ClearSkipCounting() {
 
 function ClearSort() {
     const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Sorting");
-    spreadsheet.getRange('A1:A30').clearContent();
+    spreadsheet.getRange('A1:B30').clearContent();
 }
 
 function ClearRounding() {
