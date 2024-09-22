@@ -19,6 +19,23 @@ const CMD_CLEAR = [
     ClearSort
 ];
 
+/**
+ * Converts numbers into words
+ * 
+ * Taken from https://stackoverflow.com/questions/72159705/numbers-to-words-using-html-and-javascript
+ * @param n number to be converted
+ * @returns String representation of the number given
+ */
+function number_to_words(n: number): string {
+    const num = "zero,one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve,thirteen,fourteen,fifteen,sixteen,seventeen,eighteen,nineteen".split(",");
+    const tens = "twenty,thirty,forty,fifty,sixty,seventy,eighty,ninety".split(",");
+    if (n < 20) return num[n];
+    const digit = n % 10;
+    if (n < 100) return tens[Math.floor((n / 10)) - 2] + (digit ? "-" + num[digit] : "");
+    if (n < 1000) return num[Math.floor((n / 100))] + " hundred" + (n % 100 == 0 ? "" : " and " + number_to_words(n % 100));
+    return number_to_words(Math.floor((n / 1000))) + " thousand" + (n % 1000 != 0 ? " " + number_to_words(n % 1000) : "");
+}
+
 function NewRounding() {
     ClearRounding();
     const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Rounding");
