@@ -62,7 +62,9 @@ function NewWordForm() {
 function NewSort() {
     ClearSort();
     const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Sorting");
-    // TODO 1: Write func
+    const count = getSORT_COUNT();
+    const nums = getColNums(count);
+    spreadsheet.getRange('A1:A' + count).setValues(nums);
 }
 
 function ClearComparison() {
