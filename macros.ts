@@ -163,5 +163,7 @@ function InstalledEdit(e) {
             status_cell.setValue(err_msg);
             Logger.log(err_msg);
         }
+    } else {
+        Logger.log(e.range.getColumn()); // TODO test code
     }
 }
