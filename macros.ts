@@ -138,7 +138,6 @@ function InstalledEdit(e) {
         (e.range.getWidth() === 1) &&
         (e.range.getHeight() === 1) &&
         (e.range.getColumn() >= COL_MIN) &&
-        (e.range.getColumn() <= COL_MAX) &&
         (e.range.getRow() >= ROW_MIN) &&
         (e.range.getRow() <= ROW_MAX)
     ) {
@@ -165,7 +164,5 @@ function InstalledEdit(e) {
             status_cell.setValue(err_msg);
             Logger.log(err_msg);
         }
-    } else {
-        Logger.log(e.range.getColumn()); // TODO test code
     }
 }

@@ -51,7 +51,6 @@ const getROUND_EXP_HIGH = once(function () {
 });
 
 const COL_MIN = 2;
-const COL_MAX = 4;
 
 const ROW_NEW = 2;
 const ROW_CLEAR = 3;
