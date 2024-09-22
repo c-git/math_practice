@@ -1,6 +1,6 @@
 /** @OnlyCurrentDoc */
 
-// Version: 2.0
+// Version: 2.1
 
 const CMD_NEW = [
     NewEquations,
