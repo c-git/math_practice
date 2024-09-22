@@ -37,6 +37,18 @@ const getSKIP_BASES = once(function () {
 const getSKIP_IS_BASE_START = once(function () {
     return getNamedRangeValue("SkipCount_IsBaseStart");
 });
+const getSORT_COUNT = once(function () {
+    return getNamedRangeValue("SortCount");
+});
+const getWORD_FORM_PROB = once(function () {
+    return getNamedRangeValue("WordFormProb");
+});
+const getROUND_EXP_LOW = once(function () {
+    return getNamedRangeValue("RoundExpLow");
+});
+const getROUND_EXP_HIGH = once(function () {
+    return getNamedRangeValue("RoundExpHigh");
+});
 
 const COL_MIN = 2;
 const COL_MAX = 4;
