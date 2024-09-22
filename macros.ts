@@ -29,8 +29,8 @@ function NewRounding() {
         nums_to_round[0].map(x => Math.round(x / round_to) * round_to),
     ];
     spreadsheet.getRange('B1').setValue(round_to);
-    spreadsheet.getRange('A3:A' + (3 + nums_to_round.length)).setValues(nums_to_round);
-    spreadsheet.getRange('C3:C' + (3 + nums_to_round.length)).setValues(answers);
+    spreadsheet.getRange('A3:A' + (3 - 1 + nums_to_round.length)).setValues(nums_to_round);
+    spreadsheet.getRange('C3:C' + (3 - 1 + nums_to_round.length)).setValues(answers);
 }
 
 function NewWordForm() {
