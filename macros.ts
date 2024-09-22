@@ -20,7 +20,15 @@ const CMD_CLEAR = [
 function NewRounding() {
     ClearRounding();
     const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Rounding");
-    // TODO 1: Write func
+    const exponent_of_10 = getRandomInt(getROUND_EXP_LOW(), getROUND_EXP_HIGH());
+    const round_to = 10 ** exponent_of_10;
+    const nums_to_round = getColNums(getQUESTION_COUNT());
+    const answers = [
+        nums_to_round[0].map(x => Math.round(x / round_to) * round_to),
+    ];
+    spreadsheet.getRange('B1').setValue(round_to);
+    spreadsheet.getRange('A3:A' + (3 + nums_to_round.length)).setValues(nums_to_round);
+    spreadsheet.getRange('C3:C' + (3 + nums_to_round.length)).setValues(answers);
 }
 
 function NewWordForm() {
@@ -51,8 +59,9 @@ function NewEquations() {
     const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Equations");
 
     // Get default values for left and right column
-    const l_col = getColNums();
-    const r_col = getColNums();
+    const count = getQUESTION_COUNT();
+    const l_col = getColNums(count);
+    const r_col = getColNums(count);
 
     const ops = getEnabledArithOpers();
     const eqs = new Array(getQUESTION_COUNT());
@@ -66,10 +75,10 @@ function NewEquations() {
 function CreateComparisons() {
     ClearComparison();
     const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Comparison");
-    let nums = getColNums();
+    let nums = getColNums(getQUESTION_COUNT());
     spreadsheet.getRange('A1:A' + getQUESTION_COUNT()).setValues(nums);
 
-    nums = getColNums();
+    nums = getColNums(getQUESTION_COUNT());
     spreadsheet.getRange('C1:C' + getQUESTION_COUNT()).setValues(nums);
 }
 
