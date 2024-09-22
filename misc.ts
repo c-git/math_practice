@@ -1,17 +1,28 @@
 const spreadsheet_active = SpreadsheetApp.getActive();
 
+/**
+ * Random number from the MIN_NUM up to the max passed or MAX_NUM
+ * @param max Highest value to return inclusive
+ * @returns A random number in [MIN_NUM, max || MAX_NUM]
+ */
 function getRandomNum(max?: number): number {
     if (isUndefined(max))
         max = getMAX_NUM();
     return getRandomInt(getMIN_NUM(), max);
 }
 
+/**
+ * Random integer in the range specified
+ * @param min lowest integer to include
+ * @param max highest integer to include
+ * @returns a random integer in the range [min,max] inclusive
+ */
 function getRandomInt(min, max): number {
-    return Math.floor(Math.random() * (max - min)) + min;
+    return Math.floor(Math.random() * (max + 1 - min)) + min;
 }
 
 function getRandomArrayIndex(arr) {
-    return getRandomInt(0, arr.length);
+    return getRandomInt(0, arr.length - 1);
 }
 
 function getColNums(count: number): number[][] {

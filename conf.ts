@@ -2,7 +2,7 @@ const getMIN_NUM = once(function () {
     return getNamedRangeValue("MinNum");
 });
 const getMAX_NUM = once(function () {
-    return getNamedRangeValue("MaxNum") + 1;
+    return getNamedRangeValue("MaxNum");
 });
 const getQUESTION_COUNT = once(function () {
     return getNamedRangeValue("QuestionCount");
