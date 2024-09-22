@@ -1,5 +1,7 @@
 /** @OnlyCurrentDoc */
 
+// Version: 2.0
+
 const CMD_NEW = [
     NewEquations,
     CreateComparisons,
