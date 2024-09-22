@@ -50,7 +50,13 @@ function NewRounding() {
 function NewWordForm() {
     ClearWordForm();
     const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Word form");
-    // TODO 1: Write func
+    let nums = getColNums();
+    const output = new Array(getQUESTION_COUNT());
+    for (let i = 0; i < output.length; i++) {
+        const ground_truth = nums[i][0];
+        output[i] = (Math.random() < getWORD_FORM_PROB() ? [ground_truth, "", ground_truth] : ["", number_to_words(ground_truth), ground_truth]);
+    }
+    spreadsheet.getRange('A1:C' + getQUESTION_COUNT()).setValues(output);
 }
 
 function NewSort() {
@@ -114,7 +120,7 @@ function ClearRounding() {
 
 function ClearWordForm() {
     const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Word form");
-    spreadsheet.getRange('A2:B100').clearContent();
+    spreadsheet.getRange('A2:C100').clearContent();
 }
 
 
