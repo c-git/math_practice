@@ -38,8 +38,8 @@ function number_to_words(n: number): string {
 }
 
 function NewRounding() {
-    ClearRounding();
     const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Rounding");
+    spreadsheet.getRange('A3:B100').clearContent(); // Separate from calling clear because clears questions too
     const exponent_of_10 = getRandomInt(getROUND_EXP_LOW(), getROUND_EXP_HIGH());
     const round_to = 10 ** exponent_of_10;
     const nums_to_round = getColNums();
@@ -60,8 +60,8 @@ function NewWordForm() {
 }
 
 function NewSort() {
-    ClearSort();
     const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Sorting");
+    spreadsheet.getRange('A1:B30').clearContent();
     const count = getSORT_COUNT();
     const nums = getColNums(count);
     spreadsheet.getRange('A1:A' + count).setValues(nums);
@@ -69,18 +69,19 @@ function NewSort() {
 
 function ClearComparison() {
     const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Comparison");
-    spreadsheet.getRange('A:C').clearContent();
+    spreadsheet.getRange('B:B').clearContent();
 }
 
 function ClearEquations() {
     const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Equations");
-    spreadsheet.getRange('A:C').clearContent();
     spreadsheet.getRange('E:E').clearContent();
 }
 
 function NewEquations() {
     ClearEquations();
     const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Equations");
+
+    spreadsheet.getRange('A:C').clearContent();
 
     // Get default values for left and right column
     const l_col = getColNums();
@@ -96,8 +97,8 @@ function NewEquations() {
 }
 
 function CreateComparisons() {
-    ClearComparison();
     const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Comparison");
+    spreadsheet.getRange('A:C').clearContent();
     let nums = getColNums();
     spreadsheet.getRange('A1:A' + getQUESTION_COUNT()).setValues(nums);
 
@@ -112,7 +113,7 @@ function ClearSkipCounting() {
 
 function ClearSort() {
     const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Sorting");
-    spreadsheet.getRange('A1:B30').clearContent();
+    spreadsheet.getRange('B1:B30').clearContent();
 }
 
 function ClearRounding() {
@@ -122,7 +123,7 @@ function ClearRounding() {
 
 function ClearWordForm() {
     const spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Word form");
-    spreadsheet.getRange('A2:C100').clearContent();
+    spreadsheet.getRange('A1:C100').clearContent();
 }
 
 
